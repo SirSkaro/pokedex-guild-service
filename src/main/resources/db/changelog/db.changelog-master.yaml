@@ -1,0 +1,24 @@
+databaseChangeLog:  
+  - changeSet:  
+      id: 1
+      author: bchurchill
+      changes:  
+        - createTable:  
+            tableName: guild_settings
+            columns:  
+              - column:  
+                  name: guild_id  
+                  type: varchar(32)
+                  constraints:  
+                    primaryKey: true  
+                    nullable: false    
+              - column:  
+                  name: prefix  
+                  type: varchar(4)
+                  constraints:  
+                    nullable: true    
+              - column:  
+                  name: language  
+                  type: varchar(24)
+                  constraints:  
+                    nullable: true    
