@@ -1,7 +1,7 @@
 package skaro.pokedex.service.guild.settings;
 
-import static skaro.pokedex.sdk.messaging.cache.CacheTopicMessagingConfiguration.CACHE_TOPIC_EXCHANGE_BEAN;
-import static skaro.pokedex.sdk.messaging.cache.CacheTopicMessagingConfiguration.DISCORD_GUILD_SETTINGS_ROUTING_PATTERN_PREFIX;
+import static skaro.pokedex.sdk.messaging.cache.NearCacheTopicMessagingConfiguration.NEAR_CACHE_TOPIC_EXCHANGE_BEAN;
+import static skaro.pokedex.sdk.messaging.cache.NearCacheTopicMessagingConfiguration.DISCORD_GUILD_SETTINGS_ROUTING_PATTERN_PREFIX;
 
 import java.lang.invoke.MethodHandles;
 
@@ -26,7 +26,7 @@ public class NearCacheMessagingEventHandler {
 	private TopicExchange topic;
 	private RabbitTemplate template;
 	
-	public NearCacheMessagingEventHandler(@Qualifier(CACHE_TOPIC_EXCHANGE_BEAN) TopicExchange topic, RabbitTemplate template) {
+	public NearCacheMessagingEventHandler(@Qualifier(NEAR_CACHE_TOPIC_EXCHANGE_BEAN) TopicExchange topic, RabbitTemplate template) {
 		this.topic = topic;
 		this.template = template;
 	}
