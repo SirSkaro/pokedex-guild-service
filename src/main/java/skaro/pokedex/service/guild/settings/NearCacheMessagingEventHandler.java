@@ -16,7 +16,7 @@ import org.springframework.data.rest.core.annotation.HandleAfterSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.stereotype.Component;
 
-import skaro.pokedex.sdk.messaging.cache.PrefixInvalidationMessage;
+import skaro.pokedex.sdk.messaging.cache.GuildSettingsInvalidationMessage;
 
 @Component
 @RepositoryEventHandler(GuildSettings.class) 
@@ -35,7 +35,7 @@ public class NearCacheMessagingEventHandler {
 	@HandleAfterSave
 	public void guildSettingsChange(GuildSettings settings) {
 		String key = DISCORD_GUILD_SETTINGS_ROUTING_PATTERN_PREFIX;
-		PrefixInvalidationMessage message = new PrefixInvalidationMessage();
+		GuildSettingsInvalidationMessage message = new GuildSettingsInvalidationMessage();
 		message.setGuildId(settings.getGuildId());
 		
 		try {
