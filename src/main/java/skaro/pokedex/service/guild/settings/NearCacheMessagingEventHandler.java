@@ -36,7 +36,7 @@ public class NearCacheMessagingEventHandler {
 	public void guildSettingsChange(GuildSettings settings) {
 		String key = DISCORD_GUILD_SETTINGS_ROUTING_PATTERN_PREFIX;
 		GuildSettingsInvalidationMessage message = new GuildSettingsInvalidationMessage();
-		message.setGuildId(settings.getGuildId());
+		message.setGuildId(settings.getGuildId().toString());
 		
 		try {
 			template.convertAndSend(topic.getName(), key, message);

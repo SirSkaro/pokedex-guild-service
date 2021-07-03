@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import skaro.pokedex.sdk.client.Language;
 
@@ -14,17 +14,17 @@ public class GuildSettings {
 
 	@Id
 	@Column(name = "GUILD_ID")
-	@Pattern(regexp = "^\\d+$")
-	private String guildId;
+	@Positive
+	private Long guildId;
 	@Column(name = "PREFIX")
 	private String prefix;
 	@Column(name = "LANGUAGE")
 	private Language language;
 	
-	public String getGuildId() {
+	public Long getGuildId() {
 		return guildId;
 	}
-	public void setGuildId(String guildId) {
+	public void setGuildId(Long guildId) {
 		this.guildId = guildId;
 	}
 	public String getPrefix() {
